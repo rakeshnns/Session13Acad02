@@ -1,0 +1,38 @@
+<div class="container">
+    <h1>Login PAGE</h1>
+    <div class="row">
+      <div class="col-sm-6" style="background-color: lightblue; height: 300px">
+        <form>
+        User Name.................:
+        <input type="text" placeholder="Username" [(ngModel)] = userName name="username" #txtname1 (keyup)="0" maxlength="10"><br> 
+        PassWord...................:
+        <input type="password" placeholder="password" [(ngModel)] = passWord name="password" #txtname2 (keyup)="0" maxlength="8" minlength="6"><br> 
+        Confirm Password......:
+        <input type="password" placeholder="password" [(ngModel)] = CpassWord name="cpassword" #txtname3 (keyup)="0" maxlength="8" minlength="6"><br> 
+        <br> 
+       
+        <button type="submit" (click)="sign(txtname1.value, txtname2.value, txtname3.value)">Signup</button>
+        <br>
+  
+        <p style="color:red"> {{result}}</p>
+        </form>
+  
+      </div>
+      <div class="col-sm-6" style="background-color: rgb(195, 240, 195); height: 300px">
+        <form>
+  
+          User Name.................:
+          <input type="text" placeholder="Username" [(ngModel)] = userNamel name="usernamel" #txtname4 (keyup)="0" maxlength="10"><br><br>
+          PassWord...................:
+          <input type="password" placeholder="password" [(ngModel)] = passWordl name="passwordl" #txtname5 maxlength="8" minlength="6"><br> 
+          <br>
+          <br>
+    
+          <button type="submit" (click)="login(txtname4.value, txtname5.value)">Login</button>
+          <br>
+  
+          <p style="color:red"> {{resultl}}</p>
+          </form>
+      </div>
+    </div>
+  </div>

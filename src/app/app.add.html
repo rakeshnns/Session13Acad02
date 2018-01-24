@@ -1,0 +1,84 @@
+<h1 style="text-align:center">ADD</h1>
+<div class="Formbody">
+    <form [formGroup] = "myForm" (ngSubmit)="onSubmit(myForm)">
+      FirstName......:
+      <input type="text" placeholder="Firstname" formControlName ="Firstname" #ff> 
+      <!-- Checking for the validiting of the enter value. -->
+       <div *ngIf = "myForm.controls['Firstname'].errors && (myForm.controls['Firstname'].dirty || myForm.controls['Firstname'].touched)">
+           <div *ngIf = "myForm.controls['Firstname'].hasError('required')">
+               <p>Valid Firstname is required.</p>
+           </div>
+           <div *ngIf = "myForm.controls['Firstname'].hasError('minlength')">
+              <p>Please enter atleast 2 char lenth Firstname.</p>
+           </div>
+           
+           <div *ngIf = "myForm.controls['Firstname'].hasError('pattern')">
+              <p>Please enter only Characters</p>
+           </div>
+        </div>
+      <!--{{ff.className}}-->
+      <br>
+      <br>
+
+      LastName.......:
+      <input type="text" placeholder="Lastname" formControlName="Lastname">
+       <!-- Checking for the validiting of the enter value. --> 
+       <div *ngIf = "myForm.controls['Lastname'].errors && (myForm.controls['Lastname'].dirty || myForm.controls['Lastname'].touched)">
+          <div *ngIf = "myForm.controls['Lastname'].hasError('required')">
+            <p>Valid Firstname is required.</p>
+          </div>
+          <div *ngIf = "myForm.controls['Lastname'].hasError('minlength')">
+           <p>Please enter atleast 2 char lenth Firstname.</p>
+          </div>
+        
+          <div *ngIf = "myForm.controls['Lastname'].hasError('pattern')">
+           <p>Please enter only Characters</p>
+          </div>
+       </div>
+    
+        <br>
+        <br>
+
+        DOB..........:
+        <input type = "date" formControlName = 'DOB'>
+        <br>
+        <br>
+        Department.....: 
+        <input type="text" placeholder="Department" formControlName="Department" #d>
+        <!-- If Depatment has  non numeric value then not Allowed variable will be passed. -->
+        <div *ngIf = "myForm.controls.Department.errors?.notAllowed">
+          
+            <p>Valid Department is required, it should be 3 digit code.</p>
+         
+        </div>
+          <br>
+          <br>
+        
+          Select Degree.:
+          <select formControlName="Degree" name="Degree" #d>
+          <!-- To get select value -->    
+          <option  [value]="Degree" [disabled]="true">Select Option</option>
+          <!-- get the list of valid inputs -->       
+          <option *ngFor="let TiTles of EMPDeg" [ngValue]="TiTles.title">
+          {{TiTles.title}}
+          </option>
+          </select>
+          <!--{{d.className}}-->
+          <div *ngIf = "myForm.controls['Degree'].touched || myForm.controls['Degree'].untouched ">
+            <div *ngIf = "!myForm.controls['Degree'].dirty">
+               <p>Provide valid Degree.</p>
+            </div>  
+          </div>
+          <br>
+          <br>
+          
+
+
+        <div *ngIf = "myForm.controls['Degree'].dirty">
+            <button type="submit" [disabled]="myForm.invalid">
+                Submit
+            </button>
+            </div>  
+            <br>
+            <br>
+    </form>

@@ -1,0 +1,13 @@
+<nav class="navbar navbar-inverse">
+    <ul class="nav navbar-nav">
+        <!-- Routerlinkactive amd routerlinkactiveoptions -->
+        <li><a [routerLink]="['/login']" routerLinkActive ="active_link" [routerLinkActiveOptions] = "{exact:true}">Login</a></li>
+       <li><a [routerLink]="['/add']" routerLinkActive ="active_link" [routerLinkActiveOptions] = "{exact:true}">Add</a></li>
+       <li><a [routerLink]="['/view']" routerLinkActive  ="active_link" [routerLinkActiveOptions] = "{exact:true}">View</a></li>
+   <!--    <li><a [routerLink]="['/submit']">Publish</a></li>     No components present -->
+    </ul>
+</nav>    
+   <!-- <a [routerLink] = "['/Eview',PassName]">{{ PassName }} Employee</a> -->
+    <div class="outer-outlet">
+      <router-outlet></router-outlet>
+    </div>
